@@ -42,6 +42,7 @@ int main()
         cin >> I[i].weight;
     }
     sort(I,nitem);
+    //sum of Weights
     for (i = 0; i < nitem;i++)
     {
         tweight = tweight + I[i].weight;
