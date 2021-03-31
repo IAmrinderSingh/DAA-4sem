@@ -24,15 +24,14 @@ void sort(struct item *I,int size){
             }
         }
     }
-    
-    
 };
-
 int main()
 {
-    int nitem,tweight=0,mprofit=0,i;
+    int nitem, tweight, mprofit = 0, i;
     cout << "How many iteams are there? \n";
     cin >> nitem;
+    cout << "Total capacity of knapsack\n";
+    cin >> tweight;
     struct item I[nitem];
     for (i = 0; i < nitem;i++)
     {
@@ -42,18 +41,15 @@ int main()
         cin >> I[i].weight;
     }
     sort(I,nitem);
-    //sum of Weights
     for (i = 0; i < nitem;i++)
     {
-        tweight = tweight + I[i].weight;
-    }
-    for (i = 0; i < nitem;i++)
-    {
-        if(!tweight<I[i].weight)
+        if(!(tweight<I[i].weight))
         {
             mprofit = mprofit + I[i].value;
+            tweight = tweight - I[i].weight;
         }
     }
-    cout << "Max profit is " << mprofit;
+    cout << "Total weight remains\n" << tweight;
+    cout << "\nMax profit is " << mprofit;
     return 0;
 }
